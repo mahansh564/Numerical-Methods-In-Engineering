@@ -1,0 +1,29 @@
+x = [0.76, 6.66, 9.44, 16.8];
+y = [3.74, 4.90, 9.97, 9.62];
+cubic_spline = spline(x,y);
+coefs = cubic_spline.coefs;
+
+xi = 7; 
+
+%location spline
+loc = 1;
+for i = 2:length(x)
+    if x(i) > xi
+        break;
+    end
+    loc = i;
+end
+
+x_prime = xi - x(loc);
+first_derivative = 3*coefs(loc, 1)*x_prime^2 + 2*coefs(loc, 2)*x_prime + coefs(loc, 3);
+second_derivative = 6*coefs(loc, 1)*x_prime + 2*coefs(loc, 2);
+
+
+X = 0.76:0.1:16.8;
+Y = 
+scatter(x,y);
+hold on;
+plot(xx,yy);
+title('Spline Interpolation');
+xlabel('x');
+ylabel('y');

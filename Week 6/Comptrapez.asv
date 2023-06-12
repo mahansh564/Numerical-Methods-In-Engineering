@@ -1,0 +1,12 @@
+function I = Comptrapez(FunName, a, b)
+%COMPTRAPEZ Summary of this function goes here
+%   Detailed explanation goes here
+    err = 10;
+    n = 2;
+    while err > 0.01
+        h = (b - a)/n;
+        x = a:h:b;
+        for m = 1:n
+            new_i = (h/2)*(FunName(x(i))+f_right)+I;    
+end
+
